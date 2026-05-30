@@ -79,6 +79,19 @@ void drawCircle(int centerRow,int centerCol,int radius)
     }
    } 
 }
+void deletePoint(int row,int col)
+{
+    if(row >= 0 && row < ROWS && col >= 0 && col < COLS)
+    {
+        canvas[row][col] = '_';
+    }
+}
+void modifyPoint(int oldRow,int oldCol,int newRow,int newCol)
+{
+    deletePoint(oldRow,oldCol);
+    drawPoint(newRow,newCol);
+
+}
 
 
 int main()
@@ -92,6 +105,9 @@ int main()
 
     drawTriangle(6,2,4);
     drawCircle(5,15,2);
+
+    deletePoint(2,5);
+    modifyPoint(2,5,8,15);
 
     displayCanvas();
 
