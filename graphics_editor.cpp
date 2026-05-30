@@ -11,6 +11,7 @@ void initializeCanvas()
     for(int i=0;i<ROWS;i++)
        for(int j=0;j<COLS;j++)
           canvas[i][j]='_';
+
 }
 
 void displayCanvas()
@@ -22,10 +23,18 @@ void displayCanvas()
         cout <<endl;
     }
 }
+void drawPoint(int row,int col)
+{
+    if(row >=0 && row < ROWS && col >= 0 && col < COLS)
+      canvas[row][col]='*';
+}
 
 int main()
 {
     initializeCanvas();
+
+    drawPoint(2,5);
+
     displayCanvas();
 
     return 0;
