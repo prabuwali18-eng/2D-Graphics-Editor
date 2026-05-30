@@ -51,12 +51,41 @@ void drawRectangle(int row,int col,int height,int width)
         }
     }
 }
+void drawTriangle(int row,int col,int height)
+{
+    for(int i = 0;i < height;i++)
+    {
+        for(int j = 0;j <= i;j++)
+        {
+            canvas[row + i][col + j] = '*';
+            }
+    }
+}
+void drawCircle(int centerRow,int centerCol,int radius)
+{
+   for(int i = 0;i < ROWS;i++)
+   {
+    for(int j = 0;j < COLS;j++)
+    {
+        int dx = i - centerRow;
+        int dy = j - centerCol;
+
+        if(dx * dx + dy * dy <= radius * radius)
+        {
+            canvas[i][j] = '*';
+        }
+
+    }
+   } 
+}
 int main()
 {
     initializeCanvas();
     drawPoint(2,5);
     drawHorizontalLine(4);
     drawRectangle(2,3,5,10);
+    drawTriangle(6,2,4);
+    drawCircle(5,15,2);
     displayCanvas();
 
     return 0;
