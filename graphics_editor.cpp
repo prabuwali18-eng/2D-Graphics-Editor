@@ -96,20 +96,71 @@ void modifyPoint(int oldRow,int oldCol,int newRow,int newCol)
 
 int main()
 {
+    int choice;
+
     initializeCanvas();
+    do
+    {
+        cout << "\n===== 2D Graphics Editor =====\n";
+        cout << "1. Draw Point\n";
+        cout << "2.Draw Line\n";
+        cout << "3. Draw Rectangle\n";
+        cout << "4. Draw Triangle\n";
+        cout << "5. Draw Circle\n";
+        cout << "6. Delete Point\n";
+        cout << "7. Modify Point\n";
+        cout << "8. Display Canvas\n";
+        cout << "9. EXit\n";
+        cout << "Enter choice:";
+        cin >> choice;
 
-    drawPoint(2,5);
-    drawHorizontalLine(4);
 
-    drawRectangle(2,3,5,10);
+    switch(choice)
+    {
+       case 1:
+         drawPoint(2,5);
+         displayCanvas();
+         break;
 
-    drawTriangle(6,2,4);
-    drawCircle(5,15,2);
+       case  2:
+         drawHorizontalLine(4);
+         displayCanvas();
+         break;
 
-    deletePoint(2,5);
-    modifyPoint(2,5,8,15);
+        case  3:
+         drawRectangle(2,3,5,10);
+         displayCanvas();
+         break;
 
-    displayCanvas();
+        case  4:
+         drawTriangle(6,2,4);
+         displayCanvas();
+         break;
+
+        case 5:
+         drawCircle(5,15,2);
+         displayCanvas();
+         break;
+
+        case 6:
+         deletePoint(2,5);
+         displayCanvas();
+         break;
+
+        case 7:
+         modifyPoint(2,5,8,15);
+         displayCanvas();
+         break;
+
+        case 8:
+         displayCanvas();
+         break;
+
+        case 9:
+          cout << "Exiting...\n";
+    }
+    
+}while(choice != 9);
 
     return 0;
 }
